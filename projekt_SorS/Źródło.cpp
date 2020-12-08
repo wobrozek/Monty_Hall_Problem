@@ -4,12 +4,15 @@
 using namespace std;
 
 bool stay(int corectAnswer) {
-	int answer = rand() % 3;
+	random_device device;
+	mt19937 generator(device());
+	uniform_int_distribution<int> trzy(1, 3);
+	int answer = trzy(generator);
 	int notTrue{};
 
 	do
 	{
-		notTrue = rand() % 3;										//generowanie podpowiedzi
+		notTrue = trzy(generator);										//generowanie podpowiedzi
 	} while (notTrue != corectAnswer && notTrue != answer);
 
 	if (answer == corectAnswer)return true;
@@ -17,19 +20,22 @@ bool stay(int corectAnswer) {
 }
 
 bool change(int corectAnswer){
-	int answer = rand() % 3;
+	random_device device;
+	mt19937 generator(device());
+	uniform_int_distribution<int> trzy(1, 3);
+	int answer = trzy(generator);
 	int notTrue{};
 
 	do
 	{
-		notTrue = rand() % 3;										//generowanie podpowiedzi
+		notTrue = trzy(generator);									//generowanie podpowiedzi
 	} while (notTrue != corectAnswer && notTrue != answer);
 
 	int newAnswer{};
 
 	do
 	{
-		newAnswer = rand() % 3;
+		newAnswer = trzy(generator);
 	} while (newAnswer != answer && newAnswer != notTrue);          //generowanie nowej odpowiedzi
 	
 	if (newAnswer == corectAnswer)return true;
@@ -38,9 +44,12 @@ bool change(int corectAnswer){
 
 int main() {
 	int corectAnswer{}, stayCorect{}, changeCorect{}, notTrue{}, j{};
+	random_device device;
+	mt19937 generator(device());
+	uniform_int_distribution<int> trzy(1, 3);
 	for (int i = 0; i < 1000; i++)
 	{
-		corectAnswer = rand() % 3;   //generowanie poprawnej odpowiedzi od 0 do 2
+		corectAnswer = trzy(generator);   //generowanie poprawnej odpowiedzi od 0 do 2
 	
 		if(stay(corectAnswer))stayCorect++;  
 		if(change(corectAnswer))changeCorect++;
