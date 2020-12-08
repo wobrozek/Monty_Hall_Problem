@@ -1,6 +1,5 @@
 #include <iostream>
-#include <stdlib.h> 
-#include <time.h>
+#include <random>
 
 using namespace std;
 
@@ -39,7 +38,6 @@ bool change(int corectAnswer){
 
 int main() {
 	int corectAnswer{}, stayCorect{}, changeCorect{}, notTrue{}, j{};
-	srand(time(NULL));
 	for (int i = 0; i < 1000; i++)
 	{
 		corectAnswer = rand() % 3;   //generowanie poprawnej odpowiedzi od 0 do 2
