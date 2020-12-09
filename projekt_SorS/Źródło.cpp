@@ -30,14 +30,14 @@ bool change(int corectAnswer){
 	do
 	{
 		notTrue = trzy(generator);									//generowanie podpowiedzi
-	} while (notTrue != corectAnswer && notTrue != answer);
+	} while (notTrue == corectAnswer || notTrue == answer);
 
 	int newAnswer{};
 
 	do
 	{
 		newAnswer = trzy(generator);
-	} while (newAnswer != answer && newAnswer != notTrue);          //generowanie nowej odpowiedzi
+	} while (newAnswer == answer || newAnswer == notTrue);          //generowanie nowej odpowiedzi
 	
 	if (newAnswer == corectAnswer)return true;
 	return false;
@@ -58,5 +58,5 @@ int main() {
 	}
 	cout << "dla funkcji ktora nie zmiennia odpowiedzi wynik wynosi: " << stayCorect<<endl;
 	cout << "dla funkcji ktora zmiennia odpowiedz wynik wynosi: " << changeCorect<<endl;
-	cout << "program wykonal sie w "<<clock()<<" milisekund";
+	cout << "program wykonal sie za pomoca Mersenne Twister w"<<clock()<<" milisekund";
 }
