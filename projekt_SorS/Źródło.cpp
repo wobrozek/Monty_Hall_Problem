@@ -1,6 +1,8 @@
 #include <iostream>
 #include <stdlib.h> 
 #include <time.h>
+#include <ctime>
+
 
 using namespace std;
 
@@ -49,5 +51,6 @@ int main() {
 		j++;
 	}
 	cout << "dla funkcji ktora nie zmiennia odpowiedzi wynik wynosi: " << stayCorect<<endl;
-	cout << "dla funkcji ktora zmiennia odpowiedz wynik wynosi: " << changeCorect;
+	cout << "dla funkcji ktora zmiennia odpowiedz wynik wynosi: " << changeCorect<<endl;
+	cout << "program wykonal sie w " << clock() << " milisekund";
 }
